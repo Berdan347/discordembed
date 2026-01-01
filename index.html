@@ -2,40 +2,53 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BRDN • Discord Metin Oluşturucu</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <title>Discord Embed Builder | BRDN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
 
-<header class="hero">
-  <h1>Discord Metin Oluşturucu</h1>
-  <p>Duyuru, partner, çekiliş metnini hazırla — direkt Discord’a yapıştır.</p>
-</header>
+  <!-- ÜST BAR -->
+  <header class="topbar">
+    <div class="logo">BRDN</div>
+    <div class="subtitle">Profesyonel Discord mesaj araçları</div>
+  </header>
 
-<section class="container">
-  <div class="form">
-    <label>Başlık</label>
-    <input id="title" placeholder="📢 DUYURU" />
+  <!-- ANA ALAN -->
+  <main class="container">
 
-    <label>Mesaj</label>
-    <textarea id="message" placeholder="Buraya mesajını yaz..."></textarea>
+    <!-- SOL PANEL -->
+    <section class="panel editor">
+      <h2>Mesaj Oluştur</h2>
 
-    <label>Alt Metin (isteğe bağlı)</label>
-    <input id="footer" placeholder="BRDN • Discord" />
+      <label>Başlık</label>
+      <input id="title" type="text" placeholder="Duyuru, Çekiliş, Partner..." />
 
-    <button onclick="copyText()">Metni Kopyala</button>
-  </div>
+      <label>Mesaj</label>
+      <textarea id="message" placeholder="Discord'a gidecek mesaj buraya yazılır..."></textarea>
 
-  <div class="output">
-    <pre id="result">📢 DUYURU
+      <label>Alt Metin (Footer)</label>
+      <input id="footer" type="text" placeholder="Sunucu adı, tarih vs." />
 
-Mesaj burada görünecek.
+      <div class="actions">
+        <button id="copyBtn">📋 Kopyala</button>
+        <button id="clearBtn" class="secondary">🧹 Temizle</button>
+      </div>
+    </section>
 
-— BRDN • Discord</pre>
-  </div>
-</section>
+    <!-- SAĞ PANEL -->
+    <section class="panel preview">
+      <h2>Önizleme</h2>
+      <div class="preview-box" id="preview">
+        <div class="preview-title">Başlık</div>
+        <div class="preview-message">Mesaj içeriği burada görünecek.</div>
+        <div class="preview-footer">Footer</div>
+      </div>
+    </section>
 
-<script src="assets/app.js"></script>
+  </main>
+
+  <script src="./assets/app.js"></script>
 </body>
 </html>
