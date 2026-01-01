@@ -19,15 +19,23 @@
   <section class="card">
     <h2>Mesaj Oluştur</h2>
 
-    <label>Hazır Şablonlar</label>
-<select id="template" onchange="applyTemplate()">
-  <option value="">Şablon seç…</option>
-  <option value="duyuru">📢 Duyuru</option>
-  <option value="cekilis">🎁 Çekiliş</option>
-  <option value="partner">🤝 Partner Duyurusu</option>
-  <option value="bakim">🛠️ Bakım Bildirimi</option>
-  <option value="etkinlik">🎉 Etkinlik</option>
-</select>
+<label>Hazır Şablonlar</label>
+
+<div class="template-box">
+  <select id="template" onchange="applyTemplate()">
+    <option value="">Şablon seçin</option>
+    <option value="duyuru">📢 Duyuru</option>
+    <option value="cekilis">🎁 Çekiliş</option>
+    <option value="partner">🤝 Partner Duyurusu</option>
+    <option value="bakim">🛠️ Bakım / Güncelleme</option>
+    <option value="etkinlik">🎉 Etkinlik</option>
+  </select>
+
+  <small id="templateDesc">
+    Bir şablon seçtiğinizde mesaj otomatik hazırlanır.
+  </small>
+</div>
+
 
     <label>Başlık</label>
     <input id="title" placeholder="📢 DUYURU" />
