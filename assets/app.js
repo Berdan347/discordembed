@@ -109,3 +109,88 @@ Herkesi bekliyoruz!`;
 
   updatePreview();
 }
+function applyTemplate() {
+  const t = document.getElementById("template").value;
+  const title = document.getElementById("title");
+  const message = document.getElementById("message");
+  const footer = document.getElementById("footer");
+  const desc = document.getElementById("templateDesc");
+
+  if (!t) {
+    desc.textContent = "Bir şablon seçtiğinizde mesaj otomatik hazırlanır.";
+    return;
+  }
+
+  const templates = {
+    duyuru: {
+      title: "📢 DUYURU",
+      message:
+`@everyone
+
+Sunucumuzla ilgili önemli bir duyuru yapılmıştır.
+
+Lütfen mesajı dikkatlice okuyunuz ve gerekli aksiyonları alınız.`,
+      footer: "Sunucu Yönetimi",
+      desc: "Genel bilgilendirme ve resmi duyurular için."
+    },
+
+    cekilis: {
+      title: "🎁 ÇEKİLİŞ",
+      message:
+`🎉 ÇEKİLİŞ BAŞLADI!
+
+Ödül:
+Katılım şartları:
+⏰ Bitiş tarihi:
+
+Herkese bol şans!`,
+      footer: "Çekiliş Ekibi",
+      desc: "Ödüllü çekilişler için hazır mesaj."
+    },
+
+    partner: {
+      title: "🤝 PARTNER DUYURUSU",
+      message:
+`Yeni partner sunucumuzu duyurmaktan mutluluk duyuyoruz.
+
+🔗 Sunucu:
+📌 Konu:
+
+Destek olmayı unutmayın!`,
+      footer: "Partner Ekibi",
+      desc: "Partner tanıtımı ve destek mesajları için."
+    },
+
+    bakim: {
+      title: "🛠️ BAKIM BİLDİRİMİ",
+      message:
+`Sunucumuz kısa süreli bakıma alınacaktır.
+
+⏰ Başlangıç:
+⏰ Bitiş:
+
+Anlayışınız için teşekkür ederiz.`,
+      footer: "Teknik Ekip",
+      desc: "Bakım ve güncelleme bilgilendirmeleri."
+    },
+
+    etkinlik: {
+      title: "🎉 ETKİNLİK",
+      message:
+`Etkinliğimize herkesi bekliyoruz!
+
+📅 Tarih:
+⏰ Saat:
+📍 Kanal:
+
+Katılımınızı bekliyoruz!`,
+      footer: "Etkinlik Ekibi",
+      desc: "Turnuva, oyun, sohbet etkinlikleri için."
+    }
+  };
+
+  title.value = templates[t].title;
+  message.value = templates[t].message;
+  footer.value = templates[t].footer;
+  desc.textContent = templates[t].desc;
+}
