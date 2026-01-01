@@ -124,3 +124,12 @@ button.secondary {
   cursor: pointer;
   font-weight: 600;
 }
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  margin-bottom: 12px;
+}
