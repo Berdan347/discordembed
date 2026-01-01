@@ -2,66 +2,59 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>BRDN | Discord Mesaj Aracı</title>
+  <title>BRDN | Discord Mesaj Oluşturucu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
-  <header>
-    <h1>BRDN</h1>
-    <p>Profesyonel Discord mesaj araçları</p>
-  </header>
-  
-<label>Hazır Şablon</label>
-<select id="templateSelect">
-  <option value="">Şablon seç...</option>
-  <option value="duyuru">📢 Duyuru</option>
-  <option value="cekilis">🎁 Çekiliş</option>
-  <option value="partner">🤝 Partnerlik</option>
-  <option value="bakim">🛠️ Bakım</option>
-  <option value="uyari">⚠️ Uyarı</option>
-</select>
+<header>
+  <h1>BRDN</h1>
+  <p>Discord için profesyonel mesaj hazırlama aracı</p>
+</header>
 
-  <main class="container">
-    <!-- SOL -->
-    <section class="card">
-      <h2>Mesaj Oluştur</h2>
+<main class="container">
 
-      <label>Başlık</label>
-      <input id="title" placeholder="Duyuru, Çekiliş, Partner..." />
+  <!-- SOL PANEL -->
+  <section class="card">
+    <h2>Mesaj Oluştur</h2>
 
-      <label>Mesaj</label>
-      <textarea id="message" rows="6" placeholder="Mesaj içeriğini yaz..."></textarea>
+    <label>Başlık</label>
+    <input id="title" placeholder="📢 DUYURU" />
 
-      <label>Alt Metin (Footer)</label>
-      <input id="footer" placeholder="Sunucu adı • Tarih vs." />
+    <label>Mesaj</label>
 
-      <div class="buttons">
-        <button onclick="copyText()">📋 Kopyala</button>
-        <button class="secondary" onclick="clearAll()">🧹 Temizle</button>
-      </div>
+    <!-- MARKDOWN BUTONLARI -->
+    <div class="md-tools">
+      <button type="button" onclick="wrapText('**')"><b>B</b></button>
+      <button type="button" onclick="wrapText('__')"><u>U</u></button>
+      <button type="button" onclick="wrapText('```')">CODE</button>
+    </div>
 
-      <div class="templates">
-        <button onclick="template('duyuru')">📢 Duyuru</button>
-        <button onclick="template('cekilis')">🎁 Çekiliş</button>
-        <button onclick="template('partner')">🤝 Partner</button>
-        <button onclick="template('bakim')">🛠️ Bakım</button>
-      </div>
-    </section>
+    <!-- MESAJ KUTUSU -->
+    <textarea id="message" rows="7" placeholder="Discord'a gönderilecek mesajı buraya yaz..."></textarea>
 
-    <!-- SAĞ -->
-    <section class="card preview">
-      <h2>Önizleme</h2>
-      <pre id="preview">Başlık
+    <label>Alt Metin (Footer)</label>
+    <input id="footer" placeholder="Sunucu Yönetimi" />
+
+    <div class="buttons">
+      <button onclick="copyText()">📋 Kopyala</button>
+      <button class="secondary" onclick="clearAll()">🧹 Temizle</button>
+    </div>
+  </section>
+
+  <!-- SAĞ PANEL -->
+  <section class="card preview">
+    <h2>Önizleme</h2>
+    <pre id="preview">📢 DUYURU
 
 Mesaj içeriği burada görünecek.
 
-— Footer</pre>
-    </section>
-  </main>
+— Sunucu Yönetimi</pre>
+  </section>
 
-  <script src="assets/app.js"></script>
+</main>
+
+<script src="assets/app.js"></script>
 </body>
 </html>
