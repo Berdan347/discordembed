@@ -129,3 +129,19 @@ document.getElementById("templateSelect").addEventListener("change", e => {
   mesaj.value = templates[e.target.value] || "";
   updatePreview();
 });
+
+function wrapText(symbol) {
+  const textarea = document.getElementById("message");
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+
+  const before = textarea.value.substring(0, start);
+  const selected = textarea.value.substring(start, end);
+  const after = textarea.value.substring(end);
+
+  textarea.value = before + symbol + selected + symbol + after;
+  textarea.focus();
+
+  updatePreview();
+}
+
