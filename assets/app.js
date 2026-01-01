@@ -1,118 +1,205 @@
-// ===== BRDN Discord Mesaj Aracı - app.js =====
+// ===== Elementler =====
+const templateSelect = document.getElementById("template");
+const templateDesc = document.getElementById("templateDesc");
 
-const templates = {
+const titleInput = document.getElementById("title");
+const messageInput = document.getElementById("message");
+const footerInput = document.getElementById("footer");
+
+const previewTitle = document.getElementById("previewTitle");
+const previewMessage = document.getElementById("previewMessage");
+const previewFooter = document.getElementById("previewFooter");
+
+const copyBtn = document.getElementById("copyBtn");
+const clearBtn = document.getElementById("clearBtn");
+const toast = document.getElementById("toast");
+
+// ===== Profesyonel Şablonlar =====
+const TEMPLATES = {
   duyuru: {
+    desc: "Genel bilgilendirme ve resmi duyurular için.",
     title: "📢 DUYURU",
     message:
-      "Merhaba @everyone,\n\n📌 **Önemli güncelleme:**\n• Detay 1\n• Detay 2\n\n🕒 Saat: 21:00\n✅ Katılımınızı bekliyoruz.",
-    footer: "BRDN • Duyuru Sistemi",
+`@everyone
+
+Değerli üyelerimiz,
+
+Sunucumuzla ilgili önemli bir bilgilendirme yapılmıştır.
+Lütfen aşağıdaki metni dikkatlice okuyunuz.
+
+• Güncelleme / Duyuru: …
+• Etkilenen kanal / sistem: …
+• Gerekli aksiyon: …
+
+Anlayışınız için teşekkür ederiz.`,
+    footer: "Sunucu Yönetimi"
   },
+
   cekilis: {
+    desc: "Ödüllü çekilişler için hazır profesyonel metin.",
     title: "🎁 ÇEKİLİŞ BAŞLADI",
     message:
-      "🎉 **Ödül:** Nitro / Oyun / Hediye\n👥 **Katılım:** ✅ Emoji ile tepki ver\n⏳ **Bitiş:** 24 saat\n\n🍀 Bol şans!",
-    footer: "BRDN • Çekiliş",
+`🎉 ÇEKİLİŞ AKTİF!
+
+🏆 Ödül: …
+👥 Katılım: Bu mesaja tepki bırak / ilgili kanalı takip et
+⏰ Bitiş: …
+
+📌 Not: Çoklu hesap / spam kesinlikle yasaktır.
+
+🍀 Herkese bol şans!`,
+    footer: "Çekiliş Ekibi"
   },
+
   partner: {
-    title: "🤝 PARTNERLİK",
+    desc: "Partner tanıtımı ve karşılıklı destek duyuruları.",
+    title: "🤝 PARTNER DUYURUSU",
     message:
-      "Selam! Partnerlik için hazırız.\n\n✅ **Şartlar:**\n• Aktif sunucu\n• Düzenli destek\n• Karşılıklı paylaşım\n\n📩 İletişim: Yetkiliye DM",
-    footer: "BRDN • Partner",
+`Yeni partner sunucumuzu duyurmaktan mutluluk duyuyoruz.
+
+🔗 Sunucu: …
+📌 Kategori / İçerik: …
+
+Destek olmak için sunucularını ziyaret etmeyi unutmayın. 💙`,
+    footer: "Partner Ekibi"
   },
+
+  bakim: {
+    desc: "Bakım ve güncelleme süreçleri için net bilgilendirme.",
+    title: "🛠️ BAKIM / GÜNCELLEME",
+    message:
+`Sunucumuz kısa süreli bakım/güncelleme sürecine alınacaktır.
+
+🕒 Başlangıç: …
+🕒 Tahmini Bitiş: …
+
+Bu süreçte bazı sistemler geçici olarak kapalı olabilir.
+Bakım tamamlandığında bilgilendirme yapılacaktır.`,
+    footer: "Teknik Ekip"
+  },
+
   etkinlik: {
-    title: "🎉 ETKİNLİK",
+    desc: "Etkinlik duyuruları için düzenli format.",
+    title: "🎉 ETKİNLİK DUYURUSU",
     message:
-      "Bu akşam etkinlik var!\n\n📍 **Konu:** Oyun / Sohbet / Turnuva\n🕘 **Saat:** 22:00\n🎙️ **Ses:** Açık\n\nHerkesi bekliyoruz!",
-    footer: "BRDN • Etkinlik",
-  },
+`Etkinliğimize herkesi bekliyoruz!
+
+📅 Tarih: …
+⏰ Saat: …
+📍 Kanal: …
+
+Katılım kuralları:
+• …
+• …
+
+Herkese iyi eğlenceler!`,
+    footer: "Etkinlik Ekibi"
+  }
 };
 
-function $(id) {
-  return document.getElementById(id);
-}
-
-// ---- Elemanlar
-const templateSelect = $("template");
-const titleInput = $("title");
-const messageInput = $("message");
-const footerInput = $("footer");
-
-const previewTitle = $("previewTitle");
-const previewMessage = $("previewMessage");
-const previewFooter = $("previewFooter");
-
-const copyBtn = $("copyBtn");
-const clearBtn = $("clearBtn");
-const toast = $("toast");
-
-// ---- Önizleme
+// ===== Önizleme =====
 function updatePreview() {
-  previewTitle.textContent = titleInput.value.trim() || "Başlık";
-  previewMessage.textContent =
-    messageInput.value.trim() || "Mesaj içeriği burada görünecek.";
-  previewFooter.textContent = footerInput.value.trim() || "Footer";
+  const t = titleInput.value.trim();
+  const m = messageInput.value.trim();
+  const f = footerInput.value.trim();
+
+  previewTitle.textContent = t || "Başlık";
+  previewMessage.textContent = m || "Mesaj içeriği burada görünecek.";
+  previewFooter.textContent = f ? `— ${f}` : "Footer";
 }
 
-// ---- Şablon seçimi
-function applyTemplate(key) {
-  const t = templates[key];
-  if (!t) return;
+// input yazınca da anlık güncellesin
+titleInput.addEventListener("input", updatePreview);
+messageInput.addEventListener("input", updatePreview);
+footerInput.addEventListener("input", updatePreview);
+
+// ===== Toast bildirimi =====
+function showToast(text) {
+  if (!toast) return;
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 1400);
+}
+
+// ===== Şablon uygula (HTML onchange bunu çağırıyor) =====
+function applyTemplate() {
+  const key = templateSelect.value;
+  if (!key) {
+    templateDesc.textContent = "Bir şablon seçtiğinizde mesaj otomatik hazırlanır.";
+    return;
+  }
+
+  const t = TEMPLATES[key];
   titleInput.value = t.title;
   messageInput.value = t.message;
   footerInput.value = t.footer;
+  templateDesc.textContent = t.desc;
+
   updatePreview();
+  showToast("Şablon yüklendi ✅");
 }
 
-// ---- Toast
-function showToast(text = "Kopyalandı ✅") {
-  toast.textContent = text;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 1400);
-}
+// global olsun diye window’a bağla (onclick/onchange için)
+window.applyTemplate = applyTemplate;
 
-// ---- Kopyalama
+// ===== Kopyala (düz metin) =====
 async function copyText() {
-  // Discord’a yapıştırılacak düz metin:
-  const out =
-    (titleInput.value.trim() ? `**${titleInput.value.trim()}**\n` : "") +
-    (messageInput.value.trim() ? `${messageInput.value.trim()}\n` : "") +
-    (footerInput.value.trim() ? `\n_${footerInput.value.trim()}_` : "");
+  const title = titleInput.value.trim();
+  const message = messageInput.value.trim();
+  const footer = footerInput.value.trim();
+
+  // Düz metin çıktısı (Discord uyumlu)
+  let out = "";
+  if (title) out += `${title}\n\n`;
+  if (message) out += `${message}\n`;
+  if (footer) out += `\n— ${footer}`;
+
+  out = out.trim();
+  if (!out) {
+    showToast("Kopyalanacak içerik yok ❌");
+    return;
+  }
 
   try {
-    await navigator.clipboard.writeText(out.trim());
-    copyBtn.classList.add("pulse");
+    await navigator.clipboard.writeText(out);
+
+    // Buton animasyonu
+    if (copyBtn) {
+      copyBtn.classList.add("pulse");
+      copyBtn.textContent = "✔ Kopyalandı";
+      setTimeout(() => {
+        copyBtn.classList.remove("pulse");
+        copyBtn.textContent = "📋 Kopyala";
+      }, 900);
+    }
+
     showToast("Kopyalandı ✅");
-    setTimeout(() => copyBtn.classList.remove("pulse"), 250);
   } catch (e) {
     showToast("Kopyalama başarısız ❌");
   }
 }
+window.copyText = copyText;
 
-// ---- Temizle
+// ===== Temizle =====
 function clearAll() {
   titleInput.value = "";
   messageInput.value = "";
   footerInput.value = "";
-  // dropdown'u ilk seçeneğe al
+
   if (templateSelect) templateSelect.value = "";
+  if (templateDesc) templateDesc.textContent = "Bir şablon seçtiğinizde mesaj otomatik hazırlanır.";
+
   updatePreview();
+
+  if (clearBtn) {
+    clearBtn.classList.add("pulse");
+    setTimeout(() => clearBtn.classList.remove("pulse"), 250);
+  }
+
   showToast("Temizlendi 🧹");
 }
-
-// ---- Eventler
-if (templateSelect) {
-  templateSelect.addEventListener("change", (e) => {
-    const key = e.target.value;
-    applyTemplate(key);
-  });
-}
-
-[titleInput, messageInput, footerInput].forEach((el) => {
-  el.addEventListener("input", updatePreview);
-});
-
-copyBtn.addEventListener("click", copyText);
-clearBtn.addEventListener("click", clearAll);
+window.clearAll = clearAll;
 
 // ilk açılış
 updatePreview();
