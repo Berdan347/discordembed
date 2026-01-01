@@ -2,53 +2,56 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Discord Embed Builder | BRDN</title>
+  <title>BRDN | Discord Mesaj Aracı</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
-  <!-- ÜST BAR -->
-  <header class="topbar">
-    <div class="logo">BRDN</div>
-    <div class="subtitle">Profesyonel Discord mesaj araçları</div>
+  <header>
+    <h1>BRDN</h1>
+    <p>Profesyonel Discord mesaj araçları</p>
   </header>
 
-  <!-- ANA ALAN -->
   <main class="container">
-
-    <!-- SOL PANEL -->
-    <section class="panel editor">
+    <!-- SOL -->
+    <section class="card">
       <h2>Mesaj Oluştur</h2>
 
       <label>Başlık</label>
-      <input id="title" type="text" placeholder="Duyuru, Çekiliş, Partner..." />
+      <input id="title" placeholder="Duyuru, Çekiliş, Partner..." />
 
       <label>Mesaj</label>
-      <textarea id="message" placeholder="Discord'a gidecek mesaj buraya yazılır..."></textarea>
+      <textarea id="message" rows="6" placeholder="Mesaj içeriğini yaz..."></textarea>
 
       <label>Alt Metin (Footer)</label>
-      <input id="footer" type="text" placeholder="Sunucu adı, tarih vs." />
+      <input id="footer" placeholder="Sunucu adı • Tarih vs." />
 
-      <div class="actions">
-        <button id="copyBtn">📋 Kopyala</button>
-        <button id="clearBtn" class="secondary">🧹 Temizle</button>
+      <div class="buttons">
+        <button onclick="copyText()">📋 Kopyala</button>
+        <button class="secondary" onclick="clearAll()">🧹 Temizle</button>
+      </div>
+
+      <div class="templates">
+        <button onclick="template('duyuru')">📢 Duyuru</button>
+        <button onclick="template('cekilis')">🎁 Çekiliş</button>
+        <button onclick="template('partner')">🤝 Partner</button>
+        <button onclick="template('bakim')">🛠️ Bakım</button>
       </div>
     </section>
 
-    <!-- SAĞ PANEL -->
-    <section class="panel preview">
+    <!-- SAĞ -->
+    <section class="card preview">
       <h2>Önizleme</h2>
-      <div class="preview-box" id="preview">
-        <div class="preview-title">Başlık</div>
-        <div class="preview-message">Mesaj içeriği burada görünecek.</div>
-        <div class="preview-footer">Footer</div>
-      </div>
-    </section>
+      <pre id="preview">Başlık
 
+Mesaj içeriği burada görünecek.
+
+— Footer</pre>
+    </section>
   </main>
 
-  <script src="./assets/app.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>
