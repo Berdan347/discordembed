@@ -193,4 +193,7 @@ Katılımınızı bekliyoruz!`,
   message.value = templates[t].message;
   footer.value = templates[t].footer;
   desc.textContent = templates[t].desc;
+
+    updatePreview();
+
 }
