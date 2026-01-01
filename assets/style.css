@@ -108,3 +108,19 @@ button.secondary {
     grid-template-columns: 1fr;
   }
 }
+
+.md-tools {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.md-tools button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
