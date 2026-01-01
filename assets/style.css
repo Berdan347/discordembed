@@ -193,3 +193,17 @@ select {
   font-size: 12px;
   color: #949ba4;
 }
+/* ===== MOBİL KAPALI (Sadece masaüstü) ===== */
+@media (max-width: 1024px) {
+  body {
+    display: none !important;
+  }
+  html::before {
+    content: "Bu site sadece bilgisayar (masaüstü) için tasarlandı.";
+    display: block;
+    padding: 30px;
+    font: 16px/1.4 Arial, sans-serif;
+    color: #fff;
+    background: #111827;
+  }
+}
