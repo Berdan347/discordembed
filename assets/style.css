@@ -220,3 +220,28 @@ main.container {
   gap: 24px;
   align-items: start;
 }
+/* toast bildirimi */
+.toast{
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .2s;
+  font-weight: 600;
+}
+.toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* kopyala butonu anim */
+.pulse{
+  transform: scale(0.98);
+  filter: brightness(1.15);
+}
