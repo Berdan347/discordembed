@@ -1,145 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRDN • Discord Embed Oluşturucu</title>
-  <link rel="stylesheet" href="./assets/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BRDN • Discord Tools</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header class="top">
-    <div class="container top-inner">
-      <a class="brand" href="#">
-        <div class="logo">B</div>
-        <div>
-          <div class="brand-name">BRDN Embed</div>
-          <div class="brand-sub">Duyuru • Partner • Çekiliş • Etkinlik</div>
-        </div>
-      </a>
 
-      <nav class="nav">
-        <a class="btn" href="../server-planner/">Sunucu Planlayıcı</a>
-      </nav>
+  <nav class="nav">
+    <div class="logo">BRDN</div>
+    <div class="nav-links">
+      <a href="#builder">Embed Builder</a>
+      <a href="#templates">Şablonlar</a>
     </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Discord Embed & Tools</h1>
+    <p>Sunucun için profesyonel embedleri saniyeler içinde oluştur.</p>
+    <a href="#builder" class="btn">Embed Oluştur</a>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="panel">
-        <div class="kicker"><span class="dot"></span> Embed / Duyuru Üret</div>
-        <h1>Tek tıkla kopyala, Discord’a yapıştır.</h1>
-        <p class="lead">Hazır şablonlar + metin çıktısı + embed JSON. Tamamen statik, GitHub Pages uyumlu.</p>
+  <section id="builder" class="section">
+    <h2>Embed Builder</h2>
+    <p class="muted">Canlı önizleme + kopyala (birazdan geliyor)</p>
 
-        <div class="grid-2">
-          <div class="card">
-            <h2>Şablonlar</h2>
-            <div class="preset-row">
-              <button class="btn soft preset" data-preset="partner">Partner</button>
-              <button class="btn soft preset" data-preset="giveaway">Çekiliş</button>
-              <button class="btn soft preset" data-preset="event">Etkinlik</button>
-              <button class="btn soft preset" data-preset="rules">Kurallar</button>
-            </div>
+    <div class="card">
+      <p>⚙️ Embed Builder bir sonraki adımda aktif olacak.</p>
+    </div>
+  </section>
 
-            <div class="hr"></div>
+  <section id="templates" class="section dark">
+    <h2>Hazır Şablonlar</h2>
 
-            <h2>İçerik</h2>
+    <div class="grid">
+      <div class="card">📢 Duyuru Embed</div>
+      <div class="card">🤝 Partner Embed</div>
+      <div class="card">🎉 Çekiliş Embed</div>
+      <div class="card">⚠️ Kurallar Embed</div>
+    </div>
+  </section>
 
-            <label class="lbl">Başlık</label>
-            <input class="input" id="eTitle" placeholder="Örn: Partner Duyurusu" maxlength="256" />
+  <footer class="footer">
+    <p>© BRDN • Discord Tools</p>
+  </footer>
 
-            <label class="lbl">Açıklama</label>
-            <textarea class="textarea" id="eDesc" placeholder="Kısa ve net açıklama..." rows="6" maxlength="4000"></textarea>
-
-            <div class="row">
-              <div class="col">
-                <label class="lbl">Renk (HEX)</label>
-                <input class="input" id="eColor" placeholder="#5865F2" value="#5865F2" />
-              </div>
-              <div class="col">
-                <label class="lbl">Footer (ops.)</label>
-                <input class="input" id="eFooter" placeholder="BRDN • Partner • Grow" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <label class="lbl">Thumbnail URL (ops.)</label>
-                <input class="input" id="eThumb" placeholder="https://..." />
-              </div>
-              <div class="col">
-                <label class="lbl">Görsel URL (ops.)</label>
-                <input class="input" id="eImage" placeholder="https://..." />
-              </div>
-            </div>
-
-            <div class="hr"></div>
-
-            <h3>Butonlar</h3>
-            <div class="row">
-              <div class="col">
-                <label class="lbl">Buton 1 Yazı</label>
-                <input class="input" id="b1Text" placeholder="Discord'a Katıl" />
-              </div>
-              <div class="col">
-                <label class="lbl">Buton 1 Link</label>
-                <input class="input" id="b1Url" placeholder="https://discord.gg/..." />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <label class="lbl">Buton 2 Yazı</label>
-                <input class="input" id="b2Text" placeholder="Kurallar" />
-              </div>
-              <div class="col">
-                <label class="lbl">Buton 2 Link</label>
-                <input class="input" id="b2Url" placeholder="https://..." />
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="btn primary" id="btnBuildEmbed">Çıktı Üret</button>
-              <button class="btn soft" id="btnCopyText">Metni Kopyala</button>
-              <button class="btn" id="btnCopyJson">Embed JSON Kopyala</button>
-              <button class="btn danger" id="btnClearEmbed">Temizle</button>
-            </div>
-
-            <div class="note">İpucu: “Embed JSON” webhook/otomasyon tarafında işine yarar. Normal mesaj için “Metin” yeter.</div>
-          </div>
-
-          <div class="card">
-            <h2>Önizleme</h2>
-            <div class="preview">
-              <div class="pv-title" id="pvTitle">Başlık</div>
-              <div class="pv-desc" id="pvDesc">Açıklama burada görünür.</div>
-              <div class="pv-footer">
-                <span class="pill" id="pvFooter">Footer</span>
-                <span class="pill" id="pvColor">#5865F2</span>
-              </div>
-              <div class="pv-buttons" id="pvButtons"></div>
-            </div>
-
-            <div class="hr"></div>
-
-            <h3>Metin Çıktısı</h3>
-            <textarea class="textarea mono" id="outText" rows="6" readonly></textarea>
-
-            <h3 style="margin-top:14px;">Embed JSON</h3>
-            <textarea class="textarea mono" id="outJson" rows="12" readonly></textarea>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>© <b>BRDN</b> • Embed Oluşturucu</div>
-        <div class="small">GitHub Pages uyumlu • Statik</div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="./assets/app.js"></script>
 </body>
 </html>
