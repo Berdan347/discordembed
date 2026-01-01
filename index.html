@@ -3,48 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BRDN • Discord Tools</title>
+  <title>BRDN • Discord Embed Builder</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="logo">BRDN</div>
-    <div class="nav-links">
-      <a href="#builder">Embed Builder</a>
-      <a href="#templates">Şablonlar</a>
+<nav class="nav">
+  <div class="logo">BRDN</div>
+  <div class="nav-links">
+    <a href="#builder">Embed Builder</a>
+    <a href="#preview">Önizleme</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Discord Embed Builder</h1>
+  <p>Profesyonel Discord embedlerini saniyeler içinde oluştur.</p>
+</header>
+
+<section id="builder" class="section">
+  <h2>Embed Ayarları</h2>
+
+  <div class="builder">
+    <div class="form">
+      <label>Başlık</label>
+      <input id="title" type="text" placeholder="Örn: 📢 Duyuru" />
+
+      <label>Açıklama</label>
+      <textarea id="description" placeholder="Embed açıklaması..."></textarea>
+
+      <label>Renk</label>
+      <input id="color" type="color" value="#5865F2" />
+
+      <label>Footer</label>
+      <input id="footer" type="text" placeholder="BRDN • Discord Tools" />
+
+      <button class="btn" onclick="copyJSON()">JSON Kopyala</button>
     </div>
-  </nav>
 
-  <header class="hero">
-    <h1>Discord Embed & Tools</h1>
-    <p>Sunucun için profesyonel embedleri saniyeler içinde oluştur.</p>
-    <a href="#builder" class="btn">Embed Oluştur</a>
-  </header>
-
-  <section id="builder" class="section">
-    <h2>Embed Builder</h2>
-    <p class="muted">Canlı önizleme + kopyala (birazdan geliyor)</p>
-
-    <div class="card">
-      <p>⚙️ Embed Builder bir sonraki adımda aktif olacak.</p>
+    <div id="preview" class="preview">
+      <div class="embed">
+        <div class="embed-color" id="embedColor"></div>
+        <div class="embed-content">
+          <div class="embed-title" id="pTitle">Başlık</div>
+          <div class="embed-desc" id="pDesc">Açıklama</div>
+          <div class="embed-footer" id="pFooter">Footer</div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="templates" class="section dark">
-    <h2>Hazır Şablonlar</h2>
+<footer class="footer">
+  © BRDN • Discord Embed Builder
+</footer>
 
-    <div class="grid">
-      <div class="card">📢 Duyuru Embed</div>
-      <div class="card">🤝 Partner Embed</div>
-      <div class="card">🎉 Çekiliş Embed</div>
-      <div class="card">⚠️ Kurallar Embed</div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>© BRDN • Discord Tools</p>
-  </footer>
-
+<script src="assets/app.js" defer></script>
 </body>
 </html>
