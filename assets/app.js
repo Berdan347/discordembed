@@ -202,10 +202,32 @@ function showToast(text) {
 // ===== Şablon uygula (HTML onchange bunu çağırıyor) =====
 function applyTemplate() {
   const key = templateSelect.value;
+
   if (!key) {
-    templateDesc.textContent = "Bir şablon seçtiğinizde mesaj otomatik hazırlanır.";
+    if (templateDesc) templateDesc.textContent = "Bir şablon seçtiğinizde mesaj otomatik hazırlanır.";
     return;
   }
+
+  const t = TEMPLATES[key];
+
+  // ✅ Şablon bulunamazsa boş kalmasın, hata da vermesin
+  if (!t) {
+    showToast("Şablon bulunamadı ❌");
+    return;
+  }
+
+  titleInput.value = t.title || "";
+  messageInput.value = t.message || "";
+  footerInput.value = t.footer || "";
+
+  if (templateDesc) templateDesc.textContent = t.desc || "Şablon yüklendi ✅";
+
+  updatePreview();
+  showToast("Şablon yüklendi ✅");
+}
+
+window.applyTemplate = applyTemplate;
+
 
   const t = TEMPLATES[key];
   titleInput.value = t.title;
