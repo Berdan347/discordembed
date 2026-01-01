@@ -50,3 +50,62 @@ function wrapText(symbol) {
 
   updatePreview();
 }
+function applyTemplate() {
+  const t = document.getElementById("template").value;
+
+  if (t === "duyuru") {
+    titleInput.value = "📢 DUYURU";
+    messageInput.value =
+`Değerli üyelerimiz,
+
+Sunucumuzla ilgili önemli bir bilgilendirme yapılmıştır.
+Lütfen mesajı dikkatlice okuyunuz.
+
+İyi eğlenceler dileriz.`;
+    footerInput.value = "Sunucu Yönetimi";
+  }
+
+  if (t === "cekilis") {
+    titleInput.value = "🎁 ÇEKİLİŞ BAŞLADI";
+    messageInput.value =
+`Herkese merhaba!
+
+Sunucumuzda yeni bir çekiliş başlamıştır.
+Katılım şartları aşağıda belirtilmiştir.
+
+Bol şans! 🍀`;
+    footerInput.value = "BRDN Ekibi";
+  }
+
+  if (t === "partner") {
+    titleInput.value = "🤝 PARTNER DUYURUSU";
+    messageInput.value =
+`Yeni partnerimiz aramıza katıldı.
+
+Karşılıklı destekle büyümeye devam ediyoruz.
+Partnerimize hoş geldiniz diyelim!`;
+    footerInput.value = "Partner Ekibi";
+  }
+
+  if (t === "bakim") {
+    titleInput.value = "🛠️ BAKIM BİLDİRİMİ";
+    messageInput.value =
+`Sunucumuzda kısa süreli bakım çalışması yapılacaktır.
+
+Bu süreçte bazı sistemler geçici olarak kapalı olabilir.
+Anlayışınız için teşekkür ederiz.`;
+    footerInput.value = "Teknik Ekip";
+  }
+
+  if (t === "etkinlik") {
+    titleInput.value = "🎉 ETKİNLİK DUYURUSU";
+    messageInput.value =
+`Sunucumuzda yeni bir etkinlik başlıyor!
+
+Katılım detayları aşağıda paylaşılmıştır.
+Herkesi bekliyoruz!`;
+    footerInput.value = "Etkinlik Ekibi";
+  }
+
+  updatePreview();
+}
