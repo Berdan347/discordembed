@@ -61,3 +61,71 @@ function template(type) {
 
   updatePreview();
 }
+
+const templates = {
+  duyuru: `📢 ÖNEMLİ DUYURU
+
+Değerli üyelerimiz,
+
+Sunucumuzla ilgili önemli bir bilgilendirme yapılmıştır.
+Lütfen aşağıdaki açıklamayı dikkatlice okuyunuz.
+
+• Kurallara uyum zorunludur
+• Aksi durumlarda işlem uygulanacaktır
+
+Anlayışınız için teşekkür ederiz.
+
+— Sunucu Yönetimi`,
+
+  cekilis: `🎁 ÇEKİLİŞ BAŞLADI
+
+Herkese merhaba,
+
+Sunucumuz adına özel olarak düzenlenen çekilişimiz aktif hale gelmiştir.
+
+📌 Katılım Şartları:
+• Sunucuda aktif olmak
+• Kurallara uymak
+• Gerekli kanalları takip etmek
+
+Bol şans dileriz 🍀
+
+— Yetkili Ekibi`,
+
+  partner: `🤝 PARTNERLİK BAŞVURULARI
+
+Partner sunucu alımlarımız açılmıştır.
+
+📌 Şartlar:
+• Aktif ve düzenli sunucu
+• Karşılıklı reklam
+• Kurallara uygunluk
+
+Başvurular ticket üzerinden alınmaktadır.
+
+— Partner Sorumluları`,
+
+  bakim: `🛠️ BAKIM BİLGİLENDİRMESİ
+
+Sunucumuz kısa süreli bakım sürecine alınacaktır.
+
+Bu süreçte bazı sistemler geçici olarak kapalı olabilir.
+
+Bilginize sunarız.
+
+— Teknik Ekip`,
+
+  uyari: `⚠️ ÖNEMLİ UYARI
+
+Sunucu kurallarına uymayan kullanıcılar hakkında işlem yapılacaktır.
+
+Tekrar eden ihlallerde kalıcı yaptırımlar uygulanabilir.
+
+— Yönetim Ekibi`
+};
+
+document.getElementById("templateSelect").addEventListener("change", e => {
+  const mesaj = document.getElementById("message");
+  mesaj.value = templates[e.target.value] || "";
+  updatePreview();
+});
