@@ -159,3 +159,37 @@ select {
   color: #94a3b8;
   font-size: 12px;
 }
+/* DISCORD PREVIEW */
+.discord-preview {
+  background: #2b2d31;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: "gg sans", "Segoe UI", Arial, sans-serif;
+  color: #dbdee1;
+  line-height: 1.4;
+}
+
+.dp-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.dp-divider {
+  height: 1px;
+  background: #3f4147;
+  margin: 8px 0;
+}
+
+.dp-message {
+  white-space: pre-wrap;
+  font-size: 14px;
+  color: #dbdee1;
+}
+
+.dp-footer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #949ba4;
+}
