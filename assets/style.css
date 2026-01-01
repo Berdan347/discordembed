@@ -1,11 +1,10 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: Inter, system-ui, sans-serif;
 }
 
 body {
+  margin: 0;
   background: #0f172a;
   color: #e5e7eb;
 }
@@ -20,75 +19,105 @@ body {
 
 .logo {
   font-weight: 800;
-  font-size: 20px;
   color: #38bdf8;
 }
 
 .nav-links a {
   color: #e5e7eb;
-  text-decoration: none;
   margin-left: 20px;
-  font-size: 14px;
+  text-decoration: none;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 80px 20px;
 }
 
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.hero p {
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
-
-.btn {
-  background: #38bdf8;
-  color: #020617;
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* SECTIONS */
+/* SECTION */
 .section {
-  padding: 80px 40px;
+  padding: 60px 40px;
   max-width: 1100px;
   margin: auto;
 }
 
-.section h2 {
-  margin-bottom: 20px;
-}
-
-.muted {
-  opacity: 0.6;
-  margin-bottom: 20px;
-}
-
-/* CARDS */
-.grid {
+/* BUILDER */
+.builder {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-.card {
+.form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
   background: #020617;
-  padding: 24px;
-  border-radius: 12px;
+  color: #e5e7eb;
+}
+
+.form textarea {
+  min-height: 100px;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* PREVIEW */
+.preview {
+  display: flex;
+  justify-content: center;
+}
+
+.embed {
+  display: flex;
+  background: #020617;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
   border: 1px solid #1e293b;
 }
 
-/* DARK */
-.section.dark {
-  background: #020617;
+.embed-color {
+  width: 6px;
+  background: #5865F2;
+}
+
+.embed-content {
+  padding: 15px;
+}
+
+.embed-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.embed-desc {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.embed-footer {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
 }
 
 /* FOOTER */
