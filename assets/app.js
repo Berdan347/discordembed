@@ -94,6 +94,83 @@ Katılım kuralları:
 
 Herkese iyi eğlenceler!`,
     footer: "Etkinlik Ekibi"
+
+  kurallar: {
+    desc: "Kurallar mesajı (net, profesyonel, uygulanabilir).",
+    title: "📌 SUNUCU KURALLARI",
+    message:
+`Değerli üyelerimiz,
+
+Sunucumuzun düzeni ve güvenliği için aşağıdaki kurallara uymanız zorunludur:
+
+1) Saygı: Küfür, hakaret, nefret söylemi ve taciz yasaktır.
+2) Spam/Flood: Gereksiz etiket, reklam ve flood yasaktır.
+3) Gizlilik: Kişisel bilgi paylaşımı (dox, ifşa) kesinlikle yasaktır.
+4) Reklam: Yetkisiz sunucu/ürün reklamı yasaktır.
+5) Yetkili Kararları: Yetkili uyarılarına uyulmalıdır.
+
+İhlallerde; uyarı → susturma → uzaklaştırma uygulanabilir.
+
+Teşekkürler.`,
+    footer: "Yönetim Ekibi"
+  },
+
+  yetkili: {
+    desc: "Yetkili alım duyurusu (ciddi ve iş odaklı).",
+    title: "🛡️ YETKİLİ ALIMI",
+    message:
+`Merhaba!
+
+Sunucumuz için yeni yetkili arkadaşlar arıyoruz.
+
+✅ Aranan özellikler:
+• Aktiflik ve sorumluluk bilinci
+• İletişimi güçlü, sakin ve çözüm odaklı
+• Kurallara hakim, adil yaklaşım
+
+📌 Başvuru:
+• Ticket açarak “Yetkili Başvuru” seçeneğini kullanın.
+• Kısa bir tanıtım + aktif olduğunuz saatleri yazın.
+
+Uygun görülen adaylara dönüş sağlanacaktır.`,
+    footer: "Yetkili Ekibi"
+  },
+
+  ticket: {
+    desc: "Destek/ticket yönlendirme (düzenli ve net).",
+    title: "🎫 DESTEK / TICKET",
+    message:
+`Destek almak için lütfen ticket açın.
+
+📌 Ticket açarken:
+• Konuyu net yazın (ör: “Rol sorunu”, “Ödeme”, “Şikayet”, “Öneri”)
+• Gerekirse ekran görüntüsü ekleyin
+• Etiket spam’i yapmayın
+
+Yetkililer en kısa sürede dönüş sağlayacaktır.
+
+Teşekkürler.`,
+    footer: "Destek Ekibi"
+  },
+
+  tanitim: {
+    desc: "Sunucu tanıtım / reklam metni (profesyonel vitrin).",
+    title: "📣 SUNUCU TANITIMI",
+    message:
+`Merhaba! Sunucumuza davetlisin 👋
+
+✨ Sunucumuzda neler var?
+• Aktif sohbet ve düzenli etkinlikler
+• Çekilişler / özel rol sistemleri
+• Yardımsever topluluk ve ilgili yetkililer
+
+📌 Katıl:
+👉 Davet linki: (buraya link)
+
+Gelin, birlikte büyüyelim!`,
+    footer: "BRDN • Topluluk"
+  },
+
   }
 };
 
