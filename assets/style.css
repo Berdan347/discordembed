@@ -1,61 +1,128 @@
-body {
+* {
   margin: 0;
-  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f172a, #020617);
   color: #e5e7eb;
-  font-family: system-ui, sans-serif;
+  min-height: 100vh;
 }
 
-.hero {
+/* TOPBAR */
+.topbar {
   text-align: center;
-  padding: 70px 20px;
+  padding: 30px 15px;
 }
 
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+/* CONTAINER */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-  padding: 40px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 24px;
 }
 
-.form label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
+/* PANEL */
+.panel {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.form input,
-.form textarea {
+.panel h2 {
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+/* FORM */
+label {
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+input, textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  padding: 12px;
   background: #020617;
-  color: #fff;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
 }
 
-.form textarea {
+textarea {
+  resize: vertical;
   min-height: 120px;
 }
 
-button {
-  margin-top: 20px;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  background: #38bdf8;
-  color: #020617;
-  font-weight: 700;
-  cursor: pointer;
+/* BUTTONS */
+.actions {
+  display: flex;
+  gap: 12px;
 }
 
-.output pre {
+button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #020617;
+}
+
+button.secondary {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+/* PREVIEW */
+.preview-box {
   background: #020617;
-  border-radius: 10px;
-  padding: 20px;
-  height: 100%;
+  border-left: 4px solid #6366f1;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.preview-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.preview-message {
   white-space: pre-wrap;
-  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.preview-footer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }
